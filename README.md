@@ -69,19 +69,28 @@ The communication between the client and server is secured using SSL/TLS with si
 
 - **Generate the Certificate Authority (CA)**:
         ```sh
-        openssl genrsa -out root.key 2048
+        openssl genrsa -out root.key 2048 ```
+        ```sh
         openssl req -x509 -new -nodes -key root.key -sha256 -days 365 -out root.pem
         ```
 - **Generate the Server Certificate**:
         ```sh
         openssl genrsa -out serv.key 2048
+        ```
+        ```sh
         openssl req -new -nodes -key serv.key -sha256 -days 365 -out serv.csr
+        ```
+        ```sh
         openssl x509 -req -in serv.csr -CA root.pem -CAkey root.key -CAcreateserial -out serv.crt -days 365 -sha256
         ```
 - **Generate the Client Certificate**:
         ```sh
         openssl genrsa -out cli.key 2048
+        ```
+        ```sh
         openssl req -new -nodes -key cli.key -sha256 -days 365 -out cli.csr
+        ```
+        ```sh
         openssl x509 -req -in cli.csr -CA root.pem -CAkey root.key -CAcreateserial -out cli.crt -days 365 -sha256
         ```
 
