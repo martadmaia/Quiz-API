@@ -20,7 +20,7 @@ This project is a distributed system for managing quizzes, developed as a Flask 
     ├── cli.crt
     ├── cli.csr
     ├── cli.key
-├── client
+├── server
     ├── serv.crt
     ├── serv.csr
     ├── serv.key
